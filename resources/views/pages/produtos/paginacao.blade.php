@@ -28,13 +28,15 @@
             </tr>
           </thead>
           <tbody>
+            <input type="hidden" name="csrf-token" value="{{csrf_token()}}">
             @foreach ($findProduto as $produto)
             <tr>
               <td>{{$produto->nome}}</td>
               <td>{{ 'R$' . ' ' . number_format($produto->valor, 2, ',', '.')}}</td>
               <td>
+               
                 <a href="" class="btn btn-light btn-sm">Editar</a>
-                <a href="{{route('produto.delete')}}" class="btn btn-danger btn-sm">Excluir</a>
+                <a onclick="deleteRegistroPaginacao('{{route('produto.delete')}}', {{$produto->id}})" class="btn btn-danger btn-sm">Excluir</a> 
               </td>
             </tr>
             @endforeach

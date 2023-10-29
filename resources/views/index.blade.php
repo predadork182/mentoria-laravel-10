@@ -14,15 +14,15 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{asset('icones/apple-touch-icon.png')}}" sizes="180x180">
-    <link rel="icon" href="{{asset('icones/favicon-32x32.png')}}" sizes="32x32" type="image/png">
-    <link rel="icon" href="{{asset('icones/favicon-16x16.png')}}" sizes="16x16" type="image/png">
-    <link rel="manifest" href="{{asset('icones/favicons/manifest.json')}}">
-    <link rel="mask-icon" href="{{asset('icones/avicons/safari-pinned-tab.svg')}}" color="#712cf9">
-    <link rel="icon" href="{{asset('icones/favicon.ico')}}">
+    <link rel="apple-touch-icon" href="{{asset('/icones/apple-touch-icon.png')}}" sizes="180x180">
+    <link rel="icon" href="{{asset('/icones/favicon-32x32.png')}}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{asset('/icones/favicon-16x16.png')}}" sizes="16x16" type="image/png">
+    <link rel="manifest" href="{{asset('/icones/manifest.json')}}">
+    <link rel="mask-icon" href="{{asset('/icones/safari-pinned-tab.svg')}}" color="#712cf9">
+    <link rel="icon" href="{{asset('/icones/favicon.ico')}}">
     <meta name="theme-color" content="#712cf9">
 
 
@@ -207,9 +207,13 @@
   </div>
 </div>
 @yield('scripts')
-<script src="{{asset('js/bootstrap.bundle.mim.js')}}"></script>
-<script src="{{asset('js/chart.umd.js')}}"></script>
-<script src="{{asset('js/dashboard.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
+{{-- <script src="{{asset('/js/chart.umd.js')}}"></script> --}}
+<script src="{{asset('/js/dashboard.js')}}"></script>
+<script src="{{asset('/js/color-modes.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js" integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{asset('/js/projeto.js')}}"></script>
 </body>
-<script src="{{asset('js/color-modes.js')}}"></script>
+
 </html>
