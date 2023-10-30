@@ -6,10 +6,10 @@
     <h1 class="h2">Produtos</h1>
 </div>
 <div>
-    <form action="{{ route('produto.index')}}" method="get">
+    <form action="{{ route('produto.index') }}" method="get">
         <input type="text" name="pesquisar" id="" placeholder="Digite seu nome">
         <button>Pesquisar</button>
-        <a href="" class="btn btn-success float-end">Incluir produtos</a>
+        <a href="{{ route('cadastrar.produto') }}" class="btn btn-success float-end">Incluir produtos</a>
     </form>
     <div class="table-responsive small mt-4">
 
@@ -30,7 +30,7 @@
           <tbody>
             <input type="hidden" name="csrf-token" value="{{csrf_token()}}">
             @foreach ($findProduto as $produto)
-            <tr>
+            <tr data-row="{{$produto->id}}">
               <td>{{$produto->nome}}</td>
               <td>{{ 'R$' . ' ' . number_format($produto->valor, 2, ',', '.')}}</td>
               <td>
