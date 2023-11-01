@@ -35,13 +35,13 @@ class ProdutosController extends Controller
 
     public function cadastrarProduto(Request $request){
 
-        dd($request);
+        // dd($request);
 
-        // if ($request->method() == "POST") {
+        if ($request->method() == "POST") {
 
-        // }
+        }
         
-        // return view('pages.produtos.create');
+        return view('pages.produtos.create');
 
     }
 
