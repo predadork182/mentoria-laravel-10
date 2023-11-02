@@ -3,18 +3,18 @@
 
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Cadastrar produto</h1>
+    <h1 class="h2">Cadastrar novo produto</h1>
 </div>
-<form>
+<form class="form" method="POST" action="{{route('cadastrar.produto')}}">
+    @csrf
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome" name="nome">
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label for="valor" class="form-label">Valor</label>
+      <input type="text" class="form-control @error('valor') is-invalid @enderror" id="valor" name="valor">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>
 @endsection
