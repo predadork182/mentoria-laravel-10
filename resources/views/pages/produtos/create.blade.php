@@ -16,7 +16,7 @@
     </div>
     <div class="mb-3">
       <label for="valor" class="form-label">Valor</label>
-      <input type="text" class="form-control @error('valor') is-invalid @enderror" id="valor" name="valor">
+      <input id="mascara_valor" type="text" class="form-control @error('valor') is-invalid @enderror" id="valor" name="valor">
       @if ($errors->has('nome'))
           <div class="invalid-feedback">{{$errors->first('valor ')}}</div>
       @endif
