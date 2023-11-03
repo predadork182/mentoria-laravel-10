@@ -16,9 +16,9 @@
     </div>
     <div class="mb-3">
       <label for="valor" class="form-label">Valor</label>
-      <input id="mascara_valor" type="text" class="form-control @error('valor') is-invalid @enderror" id="valor" name="valor" value="{{old('valor')}}">
-      @if ($errors->has('nome'))
-          <div class="invalid-feedback">{{$errors->first('valor ')}}</div>
+      <input id="mascara_valor" type="text" class="form-control @error('valor') is-invalid @enderror" name="valor" value="{{old('valor')}}">
+      @if ($errors->has('valor'))
+          <div class="invalid-feedback">{{$errors->first('valor')}}</div>
       @endif
     </div>
     <button type="submit" class="btn btn-success">Cadastrar</button>
