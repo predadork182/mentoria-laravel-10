@@ -37,8 +37,6 @@ class ProdutosController extends Controller
 
     public function cadastrarProduto(FormRequestProduto $request){
 
-       // dd($request);
-
         if ($request->method() == "POST") {
             $data = $request->all();
             $componentes = new Componentes();
@@ -49,8 +47,22 @@ class ProdutosController extends Controller
         }
         
         return view('pages.produtos.create');
-
     }
 
+    public function atualizarProduto(FormRequestProduto $request, $id){
+        dd($id);
+        if ($request->method() == "PUT") {
+
+            dd($request);
+            // $data = $request->all();
+            // $componentes = new Componentes();
+            // $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
+            // Produto::create($data);
+
+            // return redirect()->route('produto.index');
+        }
+        
+        return view('pages.produtos.update');
+    }
 }
  
