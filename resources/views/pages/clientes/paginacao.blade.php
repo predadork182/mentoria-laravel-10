@@ -13,7 +13,7 @@
     </form>
     <div class="table-responsive small mt-4">
 
-        @if($findProduto->isEmpty())
+        @if($findCliente->isEmpty())
 
         <p>Não existe dados</p>
 

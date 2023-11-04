@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('produtos')->group(function(){
-    Route::get('/', [ProdutosController::class, 'index'])->name('produto.index'); 
+    Route::get('/', [ProdutosController::class, 'index'])->name('produtos.index'); 
     // cadastrar produtos
     Route::get('/cadastrarProduto', [ProdutosController::class, 'cadastrarProduto'])->name('cadastrar.produto');
     Route::post('/cadastrarProduto', [ProdutosController::class, 'cadastrarProduto'])->name('cadastrar.produto');

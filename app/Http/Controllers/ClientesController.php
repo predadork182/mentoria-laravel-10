@@ -22,8 +22,8 @@ class ClientesController extends Controller
         $pesquisar = $request->pesquisar;
 
         $findCliente = $this->cliente->getClientePesquisarIndex(search: $pesquisar ?? '');
-
-        return view('pages.cliente.paginacao', compact('findCliente'));
+        dd($findCliente);
+        return view('pages.clientes.paginacao', compact('findCliente'));
     }
 
     public function delete(Request $request) {
@@ -44,7 +44,7 @@ class ClientesController extends Controller
             Cliente::create($data);
 
             Toastr::success('cliente gravado com sucesso');
-            return redirect()->route('cliente.index');
+            return redirect()->route('clientes.index');
         }
         
         return view('pages.clientes.create');
@@ -60,7 +60,7 @@ class ClientesController extends Controller
             $buscaRegistro = cliente::find($id);
             $buscaRegistro->update($data);
 
-            return redirect()->route('cliente.index');
+            return redirect()->route('clientes.index');
         }
 
         $findCLiente = cliente::where('id', '=', $id)->first();

@@ -19,13 +19,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 text-secondary" href="{{route('produto.index')}}">
+            <a class="nav-link d-flex align-items-center gap-2 text-secondary" href="{{route('produtos.index')}}">
               <svg class="bi"><use xlink:href="#cart"/></svg>
               Produtos
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2 text-secondary" href="#">
+            <a class="nav-link d-flex align-items-center gap-2 text-secondary" href="{{route('clientes.index')}}">
               <svg class="bi"><use xlink:href="#people"/></svg>
               Clientes
             </a>

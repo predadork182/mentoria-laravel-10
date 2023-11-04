@@ -45,7 +45,7 @@ class ProdutosController extends Controller
             Produto::create($data);
 
             Toastr::success('Produto gravado com sucesso');
-            return redirect()->route('produto.index');
+            return redirect()->route('produtos.index');
         }
         
         return view('pages.produtos.create');
@@ -61,7 +61,7 @@ class ProdutosController extends Controller
             $buscaRegistro = Produto::find($id);
             $buscaRegistro->update($data);
 
-            return redirect()->route('produto.index');
+            return redirect()->route('produtos.index');
         }
 
         $findProduto = Produto::where('id', '=', $id)->first();

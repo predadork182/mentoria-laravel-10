@@ -26,7 +26,7 @@ class Cliente extends Model
                 $query->orWhere('nome', 'LIKE', "%{$search}%");
             }
         })->get();
-
+      
         return $cliente;
     }
 }

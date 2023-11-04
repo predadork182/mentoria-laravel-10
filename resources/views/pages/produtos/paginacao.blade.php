@@ -6,7 +6,7 @@
     <h1 class="h2">Produtos</h1>
 </div>
 <div>
-    <form action="{{ route('produto.index') }}" method="get">
+    <form action="{{ route('produtos.index') }}" method="get">
         <input type="text" name="pesquisar" id="" placeholder="Digite seu nome">
         <button>Pesquisar</button>
         <a href="{{ route('cadastrar.produto') }}" class="btn btn-success float-end">Incluir produtos</a>
