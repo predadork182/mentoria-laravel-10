@@ -22,7 +22,6 @@ class ClientesController extends Controller
         $pesquisar = $request->pesquisar;
 
         $findCliente = $this->cliente->getClientePesquisarIndex(search: $pesquisar ?? '');
-        dd($findCliente);
         return view('pages.clientes.paginacao', compact('findCliente'));
     }
 
@@ -40,7 +39,6 @@ class ClientesController extends Controller
         if ($request->method() == "POST") {
             $data = $request->all();
             $componentes = new Componentes();
-            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
             Cliente::create($data);
 
             Toastr::success('cliente gravado com sucesso');
@@ -50,12 +48,11 @@ class ClientesController extends Controller
         return view('pages.clientes.create');
     }
 
-    public function atualizarcliente(Request $request, $id){
+    public function atualizarCliente(Request $request, $id){
 
         if ($request->method() == "PUT") {
             $data = $request->all();
             $componentes = new Componentes();
-            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
            
             $buscaRegistro = cliente::find($id);
             $buscaRegistro->update($data);
@@ -65,6 +62,6 @@ class ClientesController extends Controller
 
         $findCLiente = cliente::where('id', '=', $id)->first();
      
-        return view('pages.clientes.update', compact('findCliente'));
+        return view('pages.clientes.update', compact('findCLiente'));
     }
 }

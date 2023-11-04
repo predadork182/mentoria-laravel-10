@@ -14,7 +14,7 @@ class ProdutosSeeder extends Seeder
     public function run(): void
     {
         Produto::create([
-            'nome' => 'Marcos Tavares',
+            'nome' => 'Teclado',
             'valor' => '20.00',
         ]);
     }
