@@ -24,7 +24,7 @@
     </div>
     <div class="mb-3">
       <label for="cep" class="form-label">CEP</label>
-      <input id="mascara_cep" type="text" class="form-control @error('cep') is-invalid @enderror" name="cep" value="{{isset($findCLiente->cep) ? $findCLiente->cep : old('cep')}}">
+      <input id="cep" type="text" class="form-control @error('cep') is-invalid @enderror" name="cep" value="{{isset($findCLiente->cep) ? $findCLiente->cep : old('cep')}}">
       @if ($errors->has('cep'))
           <div class="invalid-feedback">{{$errors->first('cep')}}</div>
       @endif
