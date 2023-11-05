@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormRequestProduto extends FormRequest
+class FormRequestCliente extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,7 +17,7 @@ class FormRequestProduto extends FormRequest
         if($this->method() == "POST" || $this->method() == "PUT"){
             $request = [
                 "nome" => "required",
-                "valor" => "required"
+                "email" => "required"
             ];
         }
         return $request;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use App\Http\Requests\FormRequestcliente;
+use App\Http\Requests\FormRequestCliente;
 use App\Models\Componentes;
 use App\Models\Cliente;
 use Brian2694\Toastr\Facades\Toastr;
@@ -34,26 +34,24 @@ class ClientesController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function cadastrarCLiente(Request $request){
+    public function cadastrarCLiente(FormRequestCliente $request){
 
         if ($request->method() == "POST") {
             $data = $request->all();
-            $componentes = new Componentes();
             Cliente::create($data);
 
-            Toastr::success('cliente gravado com sucesso');
+            Toastr::success('Cliente gravado com sucesso');
             return redirect()->route('clientes.index');
         }
         
         return view('pages.clientes.create');
     }
 
-    public function atualizarCliente(Request $request, $id){
+    public function atualizarCliente(FormRequestCliente $request, $id){
 
         if ($request->method() == "PUT") {
             $data = $request->all();
-            $componentes = new Componentes();
-           
+
             $buscaRegistro = cliente::find($id);
             $buscaRegistro->update($data);
 
