@@ -30,7 +30,7 @@
     </div>
     <div class="mb-3">
       <label for="endereco" class="form-label">Endereço</label>
-      <input id="mascara_endereco" type="text" class="form-control @error('endereco') is-invalid @enderror" name="endereco" value="{{old('endereco')}}">
+      <input id="endereco" type="text" class="form-control @error('endereco') is-invalid @enderror" name="endereco" value="{{old('endereco')}}">
       @if ($errors->has('endereco'))
           <div class="invalid-feedback">{{$errors->first('endereco')}}</div>
       @endif
