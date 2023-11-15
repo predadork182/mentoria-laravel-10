@@ -11,13 +11,31 @@
       <label for="numeracao_da_venda" class="form-label">Numeração</label>
       <input id="numeracao_da_venda" type="text" 
         class="form-control @error('numeracao_da_venda') is-invalid @enderror" 
-        id="numeracao_da_venda" name="numeracao_da_venda" value="{{old('numeracao_da_venda')}}" disabled />
+        id="numeracao_da_venda" name="numeracao_da_venda" value="{{$findNumeracao}}" disabled />
       @if ($errors->has('numeracao_da_venda'))
          <div class="invalid-feedback">{{$errors->first('numeracao_da_venda')}}</div>
       @endif
     </div>
-    {{--   --}}
+
+    <div class="mb-3">
+      <label for="numeracao_da_venda" class="form-label">Produto</label>
+      <select class="form-select" aria-label="Default select example" name="produto_id">
+        <option selected>Selecione um produto</option>
+        @foreach ($findProduto as $produto)
+          <option value="{{$produto->id}}">{{$produto->nome}}</option>
+        @endforeach
+      </select>
     </div>
+
+    {{-- <div class="mb-3">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div> --}}
+
     <button type="submit" class="btn btn-success">Cadastrar</button> 
 </form>
 @endsection
