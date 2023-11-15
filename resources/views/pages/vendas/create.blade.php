@@ -26,16 +26,6 @@
       </select>
     </div>
 
-    {{-- <div class="mb-3">
-      <label for="cliente_id" class="form-label">Cliente</label>
-      <select class="form-select" name="cliente_id">
-        <option selected>Clique aqui para selecionar</option>
-        @foreach($findCliente as $cliente)
-          <option value="{{$cliente->id}}">{{$cliente->nome}}</option>
-        @endforeach
-      </select>
-    </div>  --}}
-
     <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>
 @endsection
