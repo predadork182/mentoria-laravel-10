@@ -39,9 +39,8 @@ class VendaController extends Controller
          
         if ($request->method() == "POST") {
             $data = $request->all();
-            $data['numeracao_da_venda'] = $findNumeracao;
+            $data['numero_da_venda'] = $findNumeracao;
             Venda::create($data);
-            dd($data);
             Toastr::success('Venda gravado com sucesso');
             return redirect()->route('vendas.index');
         }
