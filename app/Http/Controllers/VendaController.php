@@ -36,9 +36,7 @@ class VendaController extends Controller
          $findNumeracao = Venda::max('numero_da_venda') + 1;
          $findProduto = Produto::all();
          $findCliente = Cliente::all(); 
-
          
-    
         if ($request->method() == "POST") {
             $data = $request->all();
             $data['numeracao_da_venda'] = $findNumeracao;
@@ -47,8 +45,6 @@ class VendaController extends Controller
             Toastr::success('Venda gravado com sucesso');
             return redirect()->route('vendas.index');
         }
-       
-       
         
         return view('pages.vendas.create', compact('findNumeracao', 'findProduto', 'findCliente'));
     }

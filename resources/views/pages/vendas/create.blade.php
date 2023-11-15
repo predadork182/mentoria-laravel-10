@@ -8,19 +8,15 @@
 <form class="form" method="POST" action="{{route('cadastrar.venda')}}">
     @csrf
     <div class="mb-3">
-      <label for="nome" class="form-label">Numero da venda</label>
-      <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" id="nome" name="nome" value="{{old('nome')}}">
-      @if ($errors->has('nome'))
-         <div class="invalid-feedback">{{$errors->first('nome')}}</div>
+      <label for="numeracao_da_venda" class="form-label">Numeração</label>
+      <input id="numeracao_da_venda" type="text" 
+        class="form-control @error('numeracao_da_venda') is-invalid @enderror" 
+        id="numeracao_da_venda" name="numeracao_da_venda" value="{{old('numeracao_da_venda')}}" disabled />
+      @if ($errors->has('numeracao_da_venda'))
+         <div class="invalid-feedback">{{$errors->first('numeracao_da_venda')}}</div>
       @endif
     </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input id="mascara_email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
-      @if ($errors->has('email'))
-          <div class="invalid-feedback">{{$errors->first('email')}}</div>
-      @endif
-    </div>
+    {{--   --}}
     </div>
     <button type="submit" class="btn btn-success">Cadastrar</button> 
 </form>
