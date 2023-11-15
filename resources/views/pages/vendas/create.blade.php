@@ -27,6 +27,16 @@
       </select>
     </div>
 
+    <div class="mb-3">
+      <label for="numeracao_da_venda" class="form-label">Cliente</label>
+      <select class="form-select" aria-label="Default select example" name="cliente_id">
+        <option selected>Selecione um cliente</option>
+        @foreach ($findCliente as $cliente)
+          <option value="{{$cliente->id}}">{{$cliente->nome}}</option>
+        @endforeach
+      </select>
+    </div>
+
     {{-- <div class="mb-3">
       <select class="form-select" aria-label="Default select example">
         <option selected>Open this select menu</option>
