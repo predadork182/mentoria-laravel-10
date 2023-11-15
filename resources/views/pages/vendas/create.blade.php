@@ -8,24 +8,47 @@
 <form class="form" method="POST" action="{{route('cadastrar.venda')}}">
     @csrf
     <div class="mb-3">
-      <label for="numero_da_venda" class="form-label">Número da venda</label>
-      <input id="numero_da_venda" type="text" class="form-control @error('numero_da_venda') is-invalid @enderror" id="numero_da_venda" name="numero_da_venda" 
-      value="{{ $findNumeracao }}">
-      @if ($errors->has('numero_da_venda'))
-         <div class="invalid-feedback">{{$errors->first('numero_da_venda')}}</div>
+      <label for="nome" class="form-label">Nome</label>
+      <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror" id="nome" name="nome" value="{{old('nome')}}">
+      @if ($errors->has('nome'))
+         <div class="invalid-feedback">{{$errors->first('nome')}}</div>
       @endif
     </div>
-
     <div class="mb-3">
-      <label for="produto_id" class="form-label">Produto</label>
-      <select class="form-select" name="produto_id">
-        <option selected>Clique aqui para selecionar</option>
-        @foreach($findProduto as $produto)
-          <option value="{{$produto->produto_id}}">{{$produto->nome}}</option>
-        @endforeach
-      </select>
+      <label for="email" class="form-label">Email</label>
+      <input id="mascara_email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
+      @if ($errors->has('email'))
+          <div class="invalid-feedback">{{$errors->first('email')}}</div>
+      @endif
     </div>
-
+    <div class="mb-3">
+      <label for="cep" class="form-label">CEP</label>
+      <input id="cep" type="text" class="form-control @error('cep') is-invalid @enderror" name="cep" value="{{old('cep')}}">
+      @if ($errors->has('cep'))
+          <div class="invalid-feedback">{{$errors->first('cep')}}</div>
+      @endif
+    </div>
+    <div class="mb-3">
+      <label for="endereco" class="form-label">Endereço</label>
+      <input id="endereco" type="text" class="form-control @error('endereco') is-invalid @enderror" name="endereco" value="{{old('endereco')}}">
+      @if ($errors->has('endereco'))
+          <div class="invalid-feedback">{{$errors->first('endereco')}}</div>
+      @endif
+    </div>
+    <div class="mb-3">
+      <label for="logradouro" class="form-label">Logradouro</label>
+      <input id="logradouro" type="text" class="form-control @error('logradouro') is-invalid @enderror" name="logradouro" value="{{old('logradouro')}}">
+      @if ($errors->has('logradouro'))
+          <div class="invalid-feedback">{{$errors->first('logradouro')}}</div>
+      @endif
+    </div>
+    <div class="mb-3">
+      <label for="bairro" class="form-label">Bairro</label>
+      <input id="bairro" type="text" class="form-control @error('bairro') is-invalid @enderror" name="bairro" value="{{old('bairro')}}">
+      @if ($errors->has('bairro'))
+          <div class="invalid-feedback">{{$errors->first('bairro')}}</div>
+      @endif
+    </div>
     <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>
 @endsection
