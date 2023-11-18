@@ -98,3 +98,5 @@ Acesse o projeto
 
 
 github: https://github.com/VictorPadovan1997/setup-docker-laravel-10
+
+Email Template: https://github.com/leemunroe/responsive-html-email-template
