@@ -36,7 +36,7 @@
               <td>{{$venda->produto->nome}}</td>
               <td>{{$venda->cliente->nome}}</td>
               <td>
-                <a href="#" class="btn btn-light btn-sm">Enviar e-mail</a>
+                <a href="{{ route('enviaComprovantePorEmail.venda', $venda->id)}}" class="btn btn-light btn-sm">Enviar e-mail</a>
               </td>
             </tr>
             @endforeach
