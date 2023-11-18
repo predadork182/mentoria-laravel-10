@@ -6,10 +6,12 @@ use App\Http\Requests\FormRequestVenda;
 use App\Models\Componentes;
 use App\Models\Venda;
 use App\Http\Controllers\Controller;
+use App\Mail\ComprovanteDeVendaEmail;
 use App\Models\Cliente;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Mail;
 
 class VendaController extends Controller
 {
@@ -49,7 +51,20 @@ class VendaController extends Controller
     }
 
     public function enviaComprovantePorEmail($id){
-        dd($id);
+
+        $buscaVenda = Venda::where('id', '=', $id)->first();
+        $produtoNome = $buscaVenda->produto->nome;
+        $clienteNome = $buscaVenda->cliente->nome;
+        $clienteEmail = $buscaVenda->cliente->email;
+        $sendMailData = [
+            'produtoNome' => $produtoNome,
+            'clienteNome' => $clienteNome
+        ];
+
+        Mail::to($clienteEmail)->send(new ComprovanteDeVendaEmail($sendMailData));
+
+        Toastr::success('E-mail enviado com sucesso');
+        return redirect()->route('vendas.index');
 
     }
 
