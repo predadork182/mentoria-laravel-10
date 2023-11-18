@@ -25,6 +25,7 @@
               <th>Numeração</th>
               <th>Produto</th>
               <th>Cliente</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -34,6 +35,9 @@
               <td>{{$venda->numero_da_venda}}</td>
               <td>{{$venda->produto->nome}}</td>
               <td>{{$venda->cliente->nome}}</td>
+              <td>
+                <a href="#" class="btn btn-light btn-sm">Enviar e-mail</a>
+              </td>
             </tr>
             @endforeach
           </tbody>
