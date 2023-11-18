@@ -59,7 +59,7 @@ table.body .article {
     width: 100%;
   }
 
-  .ExternalClass,
+.ExternalClass,
 .ExternalClass p,
 .ExternalClass span,
 .ExternalClass font,
