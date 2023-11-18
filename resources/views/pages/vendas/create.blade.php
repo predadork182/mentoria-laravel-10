@@ -20,4 +20,4 @@
     </div>
     <button type="submit" class="btn btn-success">Cadastrar</button> 
 </form>
-@endsection
+@endsection 

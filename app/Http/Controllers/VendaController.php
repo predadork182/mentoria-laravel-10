@@ -49,4 +49,9 @@ class VendaController extends Controller
         return view('pages.vendas.create', compact('findNumeracao', 'findProduto', 'findCliente'));
     }
 
+    public function enviaComprovantePorEmail($id){
+        dd($id);
+
+    }
+
 }
