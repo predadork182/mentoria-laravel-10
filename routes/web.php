@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\VendaController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,5 +59,5 @@ Route::prefix('vendas')->group(function(){
 }); 
 
 Route::prefix('usuarios')->group(function () {
-    Route::get('/', [UsuariosControlleRoute::class, 'index'])->name('usuarios.index'); 
+    Route::get('/', [UsuariosController::class, 'index'])->name('usuarios.index'); 
 });
