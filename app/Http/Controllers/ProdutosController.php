@@ -4,69 +4,64 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestProduto;
 use App\Models\Componentes;
-use App\Models\Produto;
+use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
 
-    protected $produto;
+    protected $user;
 
-    public function __construct(Produto $produto)
+    public function __construct(User $user)
     {
-        $this->produto = $produto;
+        $this->user = $user;
     }
 
     public function index(Request $request) {
 
         $pesquisar = $request->pesquisar;
 
-        $findProduto = $this->produto->getProdutoPesquisarIndex(search: $pesquisar ?? '');
+        $findUsuario = $this->user->getUsuarioPesquisarIndex(search: $pesquisar ?? '');
 
-        return view('pages.produtos.paginacao', compact('findProduto'));
+        return view('pages.usuarios.paginacao', compact('findUsuario'));
     }
 
     public function delete(Request $request) {
 
         $id = $request->id;
-        $buscaRegistro = Produto::find($id);
+        $buscaRegistro = User::find($id);
         $buscaRegistro->delete();
 
         return response()->json(['success' => true]);
     }
 
-    public function cadastrarProduto(FormRequestProduto $request){
+    public function cadastrarProduto(Request $request){
 
         if ($request->method() == "POST") {
             $data = $request->all();
-            $componentes = new Componentes();
-            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
-            Produto::create($data);
+            User::create($data);
 
-            Toastr::success('Produto gravado com sucesso');
-            return redirect()->route('produtos.index');
+            Toastr::success('Usuário gravado com sucesso');
+            return redirect()->route('usuarios.index');
         }
         
-        return view('pages.produtos.create');
+        return view('pages.usuarios.create');
     }
 
-    public function atualizarProduto(FormRequestProduto $request, $id){
+    public function atualizarUsuario(Request $request, $id){
 
         if ($request->method() == "PUT") {
             $data = $request->all();
-            $componentes = new Componentes();
-            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
-           
-            $buscaRegistro = Produto::find($id);
+            $buscaRegistro = User::find($id);
             $buscaRegistro->update($data);
 
-            return redirect()->route('produtos.index');
+            return redirect()->route('usuarios.index');
         }
 
-        $findProduto = Produto::where('id', '=', $id)->first();
+        $findUsuario = User::where('id', '=', $id)->first();
      
-        return view('pages.produtos.update', compact('findProduto'));
+        return view('pages.usuarios.update', compact('findUsuario'));
     }
 }
  
