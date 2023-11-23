@@ -31,8 +31,8 @@ class User extends Authenticatable
     {
         $usuario = $this->where(function($query) use ($search){
             if ($search) {
-                $query->where('nome', $search);
-                $query->orWhere('nome', 'LIKE', "%{$search}%");
+                $query->where('name', $search);
+                $query->orWhere('name', 'LIKE', "%{$search}%");
             }
         })->get();
 
