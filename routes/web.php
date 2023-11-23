@@ -60,4 +60,12 @@ Route::prefix('vendas')->group(function(){
 
 Route::prefix('usuarios')->group(function () {
     Route::get('/', [UsuariosController::class, 'index'])->name('usuarios.index'); 
+    // cadastrar usuario
+    Route::get('/cadastrarUsuario', [UsuarioController::class, 'cadastrarUsuario'])->name('cadastrar.usuario');
+    Route::post('/cadastrarUsuario', [UsuarioController::class, 'cadastrarUsuario'])->name('cadastrar.usuario');
+    // atualizar usuario
+    Route::get('/atualizarUsuario/{id}', [UsuarioController::class, 'atualizarUsuario'])->name('atualizar.usuario');
+    Route::put('/atualizarUsuario/{id}', [UsuarioController::class, 'atualizarUsuario'])->name('atualizar.usuario');
+
+    Route::delete('/delete', [UsuarioController::class, 'delete'])->name('usuario.delete'); 
 });
