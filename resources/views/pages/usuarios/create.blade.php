@@ -3,24 +3,26 @@
 
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Cadastrar novo produto</h1>
+    <h1 class="h2">Cadastrar novo usuário</h1>
 </div>
-<form class="form" method="POST" action="{{route('cadastrar.produto')}}">
+<form class="form" method="POST" action="{{route('cadastrar.usuario')}}">
     @csrf
     <div class="mb-3">
-      <label for="nome" class="form-label">Nome</label>
-      <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome" name="nome" value="{{old('nome')}}">
-      @if ($errors->has('nome'))
-         <div class="invalid-feedback">{{$errors->first('nome')}}</div>
+      <label for="name" class="form-label">Nome</label>
+      <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name')}}">
+      @if ($errors->has('name'))
+         <div class="invalid-feedback">{{$errors->first('name')}}</div>
       @endif
     </div>
+
     <div class="mb-3">
-      <label for="valor" class="form-label">Valor</label>
-      <input id="mascara_valor" type="text" class="form-control @error('valor') is-invalid @enderror" name="valor" value="{{old('valor')}}">
-      @if ($errors->has('valor'))
-          <div class="invalid-feedback">{{$errors->first('valor')}}</div>
+      <label for="email" class="form-label">Email</label>
+      <input id="mascara_email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
+      @if ($errors->has('email'))
+          <div class="invalid-feedback">{{$errors->first('email')}}</div>
       @endif
     </div>
+
     <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>
 @endsection
